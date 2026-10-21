@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/catalogue_screen.dart';
+import 'screens/ma_liste_screen.dart';
 import 'screens/parametres_screen.dart';
 
 void main() {
@@ -42,6 +43,19 @@ class _HomePageState extends State<HomePage> {
         title: const Text('MaBiblio'),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          // Partie 03 : accès à Ma liste
+          IconButton(
+            icon: const Icon(Icons.checklist),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MaListeScreen(),
+                ),
+              );
+            },
+          ),
+          // Partie 01 : accès aux paramètres
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
