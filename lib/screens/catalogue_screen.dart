@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../data/livres_data.dart';
 import '../widgets/livre_card.dart';
+import 'detail_screen.dart';
 
 class CatalogueScreen extends StatelessWidget {
   const CatalogueScreen({super.key});
@@ -59,13 +60,25 @@ class CatalogueScreen extends StatelessWidget {
         ),
 
         Expanded(
-          child: ListView.separated(
+          // Q4.4 : ListView.builder, les Card n'ont plus besoin de séparateur
+          child: ListView.builder(
             itemCount: livres.length,
-            itemBuilder: (context, index) => livreTile(livres[index]),
-            separatorBuilder: (context, index) => const Divider(indent: 72),
+            itemBuilder: (context, index) {
+              final livre = livres[index];
+              return LivreCard(
+                livre: livre,
+                // Q4.7 : ouverture du détail
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailScreen(livre: livre),
+                    ),
+                  );
+                },
+              );
+            },
           ),
-
-          
         ),
       ],
     );
