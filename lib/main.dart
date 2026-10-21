@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/catalogue_screen.dart';
 import 'screens/parametres_screen.dart';
 
 void main() {
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: const Center(child: Text('Bienvenue dans MaBiblio')),
+      body: const CatalogueScreen(),
     );
   }
 }
