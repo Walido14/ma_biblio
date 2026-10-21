@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/parametres_screen.dart';
 
 void main() {
   runApp(const MaBiblioApp());
@@ -40,7 +41,17 @@ class _HomePageState extends State<HomePage> {
         title: const Text('MaBiblio'),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ParametresScreen(),
+                ),
+              );
+            },
+          ),
         ],
       ),
       body: const Center(child: Text('Bienvenue dans MaBiblio')),
